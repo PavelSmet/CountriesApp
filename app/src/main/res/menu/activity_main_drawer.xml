@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/mainFragment"
+            android:icon="@drawable/ic_home"
+            android:title="All Countries" />
+
+        <item
+            android:id="@+id/favoritesFragment"
+            android:icon="@drawable/ic_favorite_filled"
+            android:title="Favorites" />
+    </group>
+
+    <item android:title="Regions">
+        <menu>
+            <item
+                android:id="@+id/africa"
+                android:title="Africa" />
+            <item
+                android:id="@+id/americas"
+                android:title="Americas" />
+            <item
+                android:id="@+id/asia"
+                android:title="Asia" />
+            <item
+                android:id="@+id/europe"
+                android:title="Europe" />
+            <item
+                android:id="@+id/oceania"
+                android:title="Oceania" />
+        </menu>
+    </item>
+
+</menu>
