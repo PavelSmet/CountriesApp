@@ -1,12 +1,12 @@
-package com.yourname.countriesapp.data.repository
+package com.example.countriesapp.data.repository
 
-import com.yourname.countriesapp.data.local.AppDatabase
-import com.yourname.countriesapp.data.local.entity.CountryEntity
-import com.yourname.countriesapp.data.mapper.toCountry
-import com.yourname.countriesapp.data.mapper.toCountryEntity
-import com.yourname.countriesapp.data.model.Country
-import com.yourname.countriesapp.data.remote.api.CountriesApi
-import com.yourname.countriesapp.di.NetworkModule
+import com.example.countriesapp.data.local.AppDatabase
+import com.example.countriesapp.data.local.entity.CountryEntity
+import com.example.countriesapp.data.mapper.toCountry
+import com.example.countriesapp.data.mapper.toCountryEntity
+import com.example.countriesapp.data.model.Country
+import com.example.countriesapp.data.remote.api.CountriesApi
+import com.example.countriesapp.di.NetworkModule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

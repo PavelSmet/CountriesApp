@@ -1,4 +1,4 @@
-package com.yourname.countriesapp.data.local.entity
+package com.example.countriesapp.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

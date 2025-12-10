@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.yourname.countriesapp"
+    namespace = "com.example.countriesapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.yourname.countriesapp"
+        applicationId = "com.example.countriesapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

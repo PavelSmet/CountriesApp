@@ -1,11 +1,11 @@
-package com.yourname.countriesapp.data.local
+package com.example.countriesapp.data.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.yourname.countriesapp.data.local.dao.CountryDao
-import com.yourname.countriesapp.data.local.entity.CountryEntity
+import com.example.countriesapp.data.local.dao.CountryDao
+import com.example.countriesapp.data.local.entity.CountryEntity
 
 @Database(
     entities = [CountryEntity::class],

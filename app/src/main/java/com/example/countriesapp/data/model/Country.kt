@@ -1,4 +1,4 @@
-package com.yourname.countriesapp.data.model
+package com.example.countriesapp.data.model
 
 data class Country(
     val id: String,

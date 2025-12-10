@@ -1,7 +1,7 @@
-package com.yourname.countriesapp.data.local.dao
+package com.example.countriesapp.data.local.dao
 
 import androidx.room.*
-import com.yourname.countriesapp.data.local.entity.CountryEntity
+import com.example.countriesapp.data.local.entity.CountryEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

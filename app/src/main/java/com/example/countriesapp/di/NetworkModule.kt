@@ -1,6 +1,6 @@
-package com.yourname.countriesapp.di
+package com.example.countriesapp.di
 
-import com.yourname.countriesapp.data.remote.api.CountriesApi
+import com.example.countriesapp.data.remote.api.CountriesApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
