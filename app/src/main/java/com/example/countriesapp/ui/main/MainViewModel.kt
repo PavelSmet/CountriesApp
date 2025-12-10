@@ -1,14 +1,16 @@
 package com.example.countriesapp.ui.main
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.countriesapp.data.model.Country
 import com.example.countriesapp.data.repository.CountryRepository
-import kotlinx.coroutines.launch
+import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlinx.coroutines.launch
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.countriesapp.data.model.Country
 
+@HiltViewModel
 class MainViewModel @Inject constructor(
     private val repository: CountryRepository
 ) : ViewModel() {

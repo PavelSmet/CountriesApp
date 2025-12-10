@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class CountryRepository @Inject constructor(
+class CountryRepository(
     private val database: AppDatabase,
     private val api: CountriesApi
 ) {
