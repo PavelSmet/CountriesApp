@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/ivFlag"
@@ -73,8 +73,8 @@
 
         <ImageView
             android:id="@+id/ivFavorite"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_marginEnd="4dp"
             android:contentDescription="Favorite"
             app:layout_constraintBottom_toBottomOf="parent"

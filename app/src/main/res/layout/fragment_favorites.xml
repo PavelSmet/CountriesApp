@@ -4,32 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainFragment">
+    android:padding="16dp">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCountries"
+        android:id="@+id/rvFavorites"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipToPadding="false"
         android:padding="8dp"
-        android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:itemCount="5"
+        tools:itemCount="3"
         tools:listitem="@layout/item_country" />
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
+    <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabRefresh"
+    <TextView
+        android:id="@+id/tvEmpty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:contentDescription="Refresh"
-        app:srcCompat="@drawable/ic_refresh" />
+        android:layout_gravity="center"
+        android:text="Нет избранных стран"
+        android:textSize="18sp"
+        android:visibility="gone" />
 
 </FrameLayout>

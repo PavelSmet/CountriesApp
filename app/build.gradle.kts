@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -11,8 +11,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.countriesapp"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = 26
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -20,24 +20,33 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true // Включаем ViewBinding
+        viewBinding = true
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
+            isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
+        debug {
+            isMinifyEnabled = false
+            isShrinkResources = false
+        }
     }
+
+    // ЭТИ БЛОКИ ДОЛЖНЫ БЫТЬ ЗДЕСЬ, НЕ ВНУТРИ buildTypes!
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
+        languageVersion = "1.9"
     }
 }
 
@@ -49,10 +58,13 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    // Lifecycle components
+    // Lifecycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // Room
     implementation("androidx.room:room-runtime:2.6.1")
@@ -62,25 +74,28 @@ dependencies {
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
-    // Image loading
+    // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
 
     // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
+    // WorkManager
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+
+
     // Test
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    // Hilt
-    implementation("com.google.dagger:hilt-android:2.48.1")
-    kapt("com.google.dagger:hilt-compiler:2.48.1")
-
-    // Hilt для ViewModel
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-    implementation("androidx.hilt:hilt-navigation-fragment:1.1.0")
-    implementation("androidx.hilt:hilt-work:1.1.0")
 }
+
+// Уберите этот блок или исправьте его:
+// configurations.all {
+//     exclude(group = "xmlpull", module = "xmlpull")
+//     exclude(group = "xpp3", module = "xpp3")
+// }

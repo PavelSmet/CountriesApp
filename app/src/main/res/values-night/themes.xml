@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.CountriesApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Цвета для темной темы -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Фон для темной темы -->
+        <item name="android:windowBackground">@color/dark_background</item>
+        <item name="android:colorBackground">@color/dark_background</item>
+
+        <!-- Цвет текста для темной темы -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/gray_light</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/dark_surface</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/dark_surface</item>
+    </style>
+</resources>

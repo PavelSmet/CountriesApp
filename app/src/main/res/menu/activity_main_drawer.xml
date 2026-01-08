@@ -18,6 +18,9 @@
     <item android:title="Regions">
         <menu>
             <item
+                android:id="@+id/all_regions"
+                android:title="All Regions" />
+            <item
                 android:id="@+id/africa"
                 android:title="Africa" />
             <item

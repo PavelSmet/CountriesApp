@@ -1,39 +1,42 @@
 package com.example.countriesapp.ui.favorites
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.countriesapp.data.model.Country
 import com.example.countriesapp.data.repository.CountryRepository
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class FavoritesViewModel @Inject constructor(
+class FavoritesViewModel(
     private val repository: CountryRepository
 ) : ViewModel() {
 
-    private val _favorites = MutableLiveData<List<Country>>()
-    val favorites: LiveData<List<Country>> = _favorites
+    private val _favoriteCountries = MutableStateFlow<List<com.example.countriesapp.data.model.Country>>(emptyList())
+    val favoriteCountries: StateFlow<List<com.example.countriesapp.data.model.Country>> = _favoriteCountries.asStateFlow()
 
-    private val _isEmpty = MutableLiveData<Boolean>()
-    val isEmpty: LiveData<Boolean> = _isEmpty
+    private val _isLoading = MutableStateFlow(true) // начинаем с true
+    val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
     init {
-        observeFavorites()
-    }
-
-    private fun observeFavorites() {
         viewModelScope.launch {
-            repository.getFavoriteCountries().collect { favoriteCountries ->
-                _favorites.value = favoriteCountries
-                _isEmpty.value = favoriteCountries.isEmpty()
+            _isLoading.value = true  // ВКЛючаем
+
+            repository.getFavoriteCountries().collect { favorites ->
+                _favoriteCountries.value = favorites
+
+                // ВЫКЛючаем после первого значения
+                if (_isLoading.value) {
+                    _isLoading.value = false
+                }
             }
         }
     }
 
-    fun removeFromFavorites(countryId: String) {
+
+
+    fun toggleFavorite(countryId: String) {
         viewModelScope.launch {
             repository.toggleFavorite(countryId)
         }

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CountriesApp</string>
+    <string name="capital_format">Capital: %s</string>
+    <string name="population_format">Population: %s</string>
+    <string name="region_format">Region: %s</string>
+    <string name="subregion_format">Subregion: %s</string>
+    <string name="currency_format">Currency: %s</string>
+    <string name="languages_format">Languages: %s</string>
 </resources>

@@ -7,15 +7,17 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface CountriesApi {
+
+    // Основной запрос для списка стран (минимум полей для скорости)
     @GET("v3.1/all")
-    suspend fun getAllCountries(): Response<List<CountryDto>>
+    suspend fun getAllCountries(
+        @Query("fields") fields: String = "name,capital,population,flags,region,subregion,cca3,currencies,languages"
+    ): Response<List<CountryDto>>
 
-    @GET("v3.1/name/{name}")
-    suspend fun searchCountries(@Path("name") name: String): Response<List<CountryDto>>
-
-    @GET("v3.1/region/{region}")
-    suspend fun getCountriesByRegion(@Path("region") region: String): Response<List<CountryDto>>
-
+    // Запрос для детальной информации о стране (все поля)
     @GET("v3.1/alpha/{code}")
-    suspend fun getCountryByCode(@Path("code") code: String): Response<List<CountryDto>>
+    suspend fun getCountryByCode(
+        @Path("code") code: String,
+        @Query("fields") fields: String = "name,capital,population,flags,region,subregion,cca3,currencies,languages,coatOfArms,maps,timezones,continents,area,borders,startOfWeek,postalCode,car,idd,translations"
+    ): Response<List<CountryDto>>
 }

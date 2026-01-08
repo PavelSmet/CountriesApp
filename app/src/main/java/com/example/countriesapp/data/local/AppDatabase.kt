@@ -13,20 +13,20 @@ import com.example.countriesapp.data.local.entity.CountryEntity
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
+
     abstract fun countryDao(): CountryDao
 
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        fun getDatabase(context: Context): AppDatabase {
+        fun getInstance(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
                     "countries_database"
-                ).fallbackToDestructiveMigration()
-                    .build()
+                ).build()
                 INSTANCE = instance
                 instance
             }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_sort"
+        android:title="Сортировка"
+        android:icon="@drawable/ic_sort"
+        app:showAsAction="always">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/sort_name_asc"
+                    android:title="По имени (А-Я)" />
+                <item
+                    android:id="@+id/sort_name_desc"
+                    android:title="По имени (Я-А)" />
+                <item
+                    android:id="@+id/sort_population_asc"
+                    android:title="По населению (возр.)" />
+                <item
+                    android:id="@+id/sort_population_desc"
+                    android:title="По населению (убыв.)" />
+            </group>
+        </menu>
+
+    </item>
+</menu>
